@@ -1,0 +1,6 @@
+{
+  "talks": [
+    {"id": "1", "title": "Web Development Trends", "date": "2025-03-15", "event": "TechConf", "upcoming": true},
+    {"id": "2", "title": "React Patterns", "date": "2024-11-20", "event": "Meetup", "upcoming": false}
+  ]
+}
