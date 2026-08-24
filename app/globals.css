@@ -1,26 +1,58 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+:root { --background: #101719; --foreground: #e9f1ea; }
+@theme inline { --color-background: var(--background); --color-foreground: var(--foreground); }
+* { box-sizing: border-box; }
+body { background: #101719; color: var(--foreground); font-family: "Trebuchet MS", Verdana, sans-serif; margin: 0; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+.broadcast-shell { min-height: 100vh; overflow: hidden; padding: 28px clamp(20px, 5vw, 80px) 24px; background: #101719; }
+.broadcast-header, .broadcast-footer { align-items: center; display: flex; gap: 18px; letter-spacing: .12em; text-transform: uppercase; font-size: 10px; color: #9bb3ac; }
+.station-mark { border: 1px solid #9ce7d0; color: #9ce7d0; font-size: 15px; letter-spacing: -.08em; padding: 7px 9px; }
+.header-rule { background: #36504c; flex: 1; height: 1px; }
+.station-status { margin: 0; }
+.live-dot { background: #f2a56f; border-radius: 50%; display: inline-block; height: 7px; margin-right: 7px; width: 7px; }
+.broadcast-hero { align-items: end; display: grid; gap: 40px; grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr); margin: clamp(68px, 13vh, 150px) auto 110px; max-width: 1280px; }
+.section-code { color: #9ce7d0; font-size: 10px; letter-spacing: .2em; margin: 0 0 18px; text-transform: uppercase; }
+.hero-copy h1 { color: #e9f1ea; font-size: clamp(56px, 9vw, 132px); font-weight: 400; letter-spacing: -.08em; line-height: .84; margin: 0; max-width: 800px; }
+.hero-copy h1 em { color: #f2a56f; font-family: Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: -.1em; }
+.hero-note { color: #a7b9b2; font-size: 16px; line-height: 1.55; margin: 30px 0 0; max-width: 370px; }
+.tuning-panel { border: 1px solid #36504c; min-height: 260px; padding: 26px; position: relative; }
+.tuning-panel::before { border: 1px solid #36504c; content: ""; inset: 8px; pointer-events: none; position: absolute; }
+.dial { align-items: baseline; display: flex; gap: 10px; position: relative; }
+.dial span { color: #f2a56f; font-family: Georgia, serif; font-size: 84px; line-height: .8; }
+.dial small, .tuning-panel p { color: #9bb3ac; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
+.tuning-panel p { bottom: 18px; left: 26px; line-height: 1.8; margin: 0; position: absolute; }
+.tuning-panel p strong { color: #e9f1ea; font-weight: 400; }
+.wave-bars { align-items: center; display: flex; gap: 4px; height: 80px; margin: 38px 0 0; position: relative; }
+.wave-bars i { background: #9ce7d0; display: block; flex: 1; min-height: 6px; opacity: .72; }
+.archive-console { background: #e9f1ea; color: #101719; margin: 0 auto; max-width: 1280px; padding: clamp(24px, 4vw, 52px); }
+.console-topline { align-items: end; display: flex; gap: 30px; justify-content: space-between; }
+.console-topline .section-code { color: #54766d; margin-bottom: 12px; }
+.console-topline h2 { font-family: Georgia, serif; font-size: clamp(32px, 5vw, 58px); font-weight: 400; letter-spacing: -.06em; margin: 0; }
+.search-console { color: #54766d; display: grid; font-size: 10px; gap: 8px; letter-spacing: .15em; max-width: 310px; text-transform: uppercase; width: 100%; }
+.search-console input { background: transparent; border: 0; border-bottom: 1px solid #9eb8ad; color: #101719; outline: 0; padding: 10px 0; width: 100%; }
+.search-console input:focus { border-bottom-color: #101719; }
+.filter-strip { align-items: center; border-bottom: 1px solid #b6c8c0; display: flex; flex-wrap: wrap; gap: 9px; margin-top: 42px; padding-bottom: 15px; }
+.filter-button { background: transparent; border: 1px solid #b6c8c0; color: #54766d; font-size: 12px; padding: 9px 14px; }
+.filter-button:hover, .filter-button:focus-visible, .filter-button.active { background: #101719; border-color: #101719; color: #e9f1ea; }
+.result-count { color: #54766d; font-size: 11px; margin-left: auto; }
+.programme-list { min-height: 180px; }
+.programme-row { align-items: center; border-bottom: 1px solid #b6c8c0; display: grid; gap: 18px; grid-template-columns: 44px 150px 1fr 105px; padding: 25px 0; }
+.programme-number { color: #d28556; font-family: Georgia, serif; font-size: 22px; }
+.programme-date { color: #54766d; display: grid; font-size: 11px; gap: 5px; letter-spacing: .08em; }
+.programme-date small { color: #d28556; font-size: 9px; letter-spacing: .16em; }
+.programme-title h3 { font-family: Georgia, serif; font-size: clamp(22px, 3vw, 34px); font-weight: 400; letter-spacing: -.04em; margin: 0; }
+.programme-title p { color: #54766d; font-size: 12px; margin: 7px 0 0; }
+.programme-signal { align-items: center; display: flex; gap: 4px; height: 27px; justify-content: end; }
+.programme-signal span { background: #d28556; height: 8px; width: 8px; }
+.programme-signal span:nth-child(2) { height: 18px; } .programme-signal span:nth-child(3) { height: 27px; } .programme-signal span:nth-child(4) { height: 14px; } .programme-signal span:nth-child(5) { height: 21px; }
+.empty-frequency { color: #54766d; padding: 50px 0; }
+.broadcast-footer { justify-content: space-between; margin: 24px auto 0; max-width: 1280px; }
+@media (max-width: 700px) {
+  .broadcast-shell { padding-inline: 16px; } .station-status { display: none; }
+  .broadcast-hero { grid-template-columns: 1fr; margin: 80px auto 70px; } .hero-copy h1 { font-size: clamp(56px, 18vw, 90px); }
+  .tuning-panel { min-height: 220px; } .console-topline { align-items: stretch; flex-direction: column; } .search-console { max-width: none; }
+  .programme-row { gap: 10px; grid-template-columns: 30px 1fr 52px; } .programme-date { grid-column: 2; grid-row: 2; } .programme-title { grid-column: 2; grid-row: 1; } .programme-signal { grid-column: 3; grid-row: 1 / span 2; }
+  .broadcast-footer { align-items: flex-start; flex-direction: column; gap: 8px; }
 }
